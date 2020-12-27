@@ -194,7 +194,8 @@ namespace GetRankedPoints
                 if (rankedresp.IsSuccessful)
                 {
                     dynamic RankedJson = JsonConvert.DeserializeObject<JObject>(rankedresp.Content);
-                    // Debugging IGNORE Console.WriteLine(RankedJson);
+                    // Debugging IGNORE
+                    Console.WriteLine(RankedJson);
                     var store = RankedJson["Matches"];
                     foreach (var game in store)
                     {
@@ -227,8 +228,7 @@ namespace GetRankedPoints
 
                             int num = after - before;
 
-                            string str = before < after ? str = $"Congrats you gained: {num} points"
-                                : str = $"Congrats you lost: {num * -1} points";
+                            string str = before < after ? $"Congrats you gained: {num} points" : game["CompetitiveMovement"] == "PROMOTED" ? $"Congrats you gained: {after} points" : $"Congrats you lost: {num * -1} points";
                             Console.WriteLine(str);
                             Console.WriteLine($"\nActual Rank: {Ranks[game["TierAfterUpdate"]]}\n");
                             Console.WriteLine($"Points to RankUp ({Ranks[game["TierAfterUpdate"]+1]}): {100-after}!");
@@ -248,7 +248,9 @@ namespace GetRankedPoints
                         }
                         else
                         {
-                            Console.WriteLine("No ranked games detected!");
+                            Console.WriteLine("\nNo ranked games detected!");
+                            Console.ReadKey();
+                            Environment.Exit(1);
                             // Game does not register as a ranked game.
                         }
                     }

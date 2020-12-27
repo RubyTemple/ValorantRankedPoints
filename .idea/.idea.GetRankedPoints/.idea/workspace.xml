@@ -4,7 +4,10 @@
     <projectFile>GetRankedPoints/GetRankedPoints.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aec415f8-7f7d-4f02-b04e-3f0e0ffdcffe" name="Default Changelist" comment="Ops" />
+    <list default="true" id="aec415f8-7f7d-4f02-b04e-3f0e0ffdcffe" name="Default Changelist" comment="Ops">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetRankedPoints/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GetRankedPoints/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,9 +15,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/RYZEN/Desktop/ValorantRankedPoints/GetRankedPoints/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -71,7 +71,8 @@
       <updated>1608605828297</updated>
       <workItem from="1608605835477" duration="4890000" />
       <workItem from="1608612282119" duration="864000" />
-      <workItem from="1609081879464" duration="2331000" />
+      <workItem from="1609081879464" duration="3831000" />
+      <workItem from="1609089824009" duration="1083000" />
     </task>
     <task id="LOCAL-00001" summary="Update for pretty release!2">
       <created>1609083118711</created>
@@ -94,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609083638230</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ops">
+      <created>1609084387007</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609084387007</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
