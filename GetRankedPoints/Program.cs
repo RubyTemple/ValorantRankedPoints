@@ -173,7 +173,7 @@ namespace GetRankedPoints
             }
             catch (Exception e)
             {
-                Console.WriteLine("BAD LOGIN INFORMATION!!");
+                Console.WriteLine("BAD LOGIN INFORMATION!!\nEdit config!");
                 Console.ReadKey();
                 throw;
             }
