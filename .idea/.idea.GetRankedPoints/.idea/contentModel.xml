@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Mike\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Mike\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_GetRankedPoints.1558035757.00" t="ExcludeRecursive" />
-    <e p="M:\Projects\GetRankedPoints" t="IncludeFlat">
+    <e p="C:\Users\RYZEN\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\RYZEN\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_GetRankedPoints.1394976070.00" t="ExcludeRecursive" />
+    <e p="C:\Users\RYZEN\Desktop\ValorantRankedPoints" t="IncludeFlat">
       <e p="GetRankedPoints" t="IncludeRecursive">
         <e p="Authentication.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="GetRankedPoints.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="GetRankedPoints.AssemblyInfo.cs" t="Include" />
             </e>

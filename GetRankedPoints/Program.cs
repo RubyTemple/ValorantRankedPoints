@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -8,9 +9,68 @@ using Newtonsoft.Json.Linq;
 
 namespace GetRankedPoints
 {
+
     class Program
     {
-        
+
+        public static string[] Ranks =
+        {
+            "UnRanked 1",
+            "UnRanked 2",
+            "UnRanked 3",
+
+            "Iron 1",
+            "Iron 2",
+            "Iron 3",
+
+            "Bronze 1",
+            "Bronze 2",
+            "Bronze 3",
+
+            "Silver 1",
+            "Silver 2",
+            "Silver 3",
+
+            "Gold 1",
+            "Gold 2",
+            "Gold 3",
+
+            "Platinum 1",
+            "Platinum 2",
+            "Platinum 3",
+
+            "Diamond 1",
+            "Diamond 2",
+            "Diamond 3",
+
+            "Immortal 1",
+            "Immortal 2",
+            "Immortal 3",
+
+            "Radiant"
+        };
+
+        public static NameValueCollection CompetitiveMovement = new NameValueCollection()
+        {
+            {"MINOR_INCREASE", "+1"},
+            {"INCREASE", "+2"},
+            {"MAJOR_INCREASE", "+3"},
+            {"STABLE", "0"},
+            {"MINOR_DECREASE","-1"},
+            {"DECREASE", "-2"},
+            {"MAJOR_DECREASE", "-3"},
+            {"PROMOTED", "RankUp ("},
+            {"DEMOTED", "Derank ("}
+        };
+
+        public static NameValueCollection MapName = new NameValueCollection()
+        {
+            {"/Game/Maps/Bonsai/Bonsai", "Split"},
+            {"/Game/Maps/Triad/Triad", "Heaven"},
+            {"/Game/Maps/Port/Port", "IceBox"},
+            {"/Game/Maps/Ascent/Ascent", "Ascent"},
+            {"/Game/Maps/Duality/Duality", "Bind"}
+        };
         public static string AccessToken { get; set; }
         public static string EntitlementToken { get; set; }
         public static string username { get; set; }
@@ -18,13 +78,27 @@ namespace GetRankedPoints
         public static string UserID  { get; set; }
         public static string region { get; set; }
         
+        private class JConfig
+        {
+            public string Username;
+            public string Password;
+            public string Region;
+        }
+        
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Ranked Point Checker");
-            Console.WriteLine("Checking Config File.."); 
+            Console.WriteLine("Checking Config File..");
             if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "config.json")))
             {
-                Console.WriteLine("Config File not found, please add config file.");
+                Console.WriteLine("Config File not found!\nCreating new config file!\nPlease fill it and restart :)");
+                JConfig config = new JConfig() //instantiate it
+                {
+                    Password = "PASSWORD HERE",
+                    Username = "USERNAME HERE",
+                    Region = "REGION HERE (na/eu/ap/ko/br)"
+                };
+                File.WriteAllText((Path.Combine(Directory.GetCurrentDirectory(),"config.json")),JsonConvert.SerializeObject(config, Formatting.Indented));
                 Console.ReadKey();
                 Environment.Exit(1);
             }
@@ -46,9 +120,9 @@ namespace GetRankedPoints
             // DEBUGGING IGNORE Console.WriteLine(json);
             var localJSON = JsonConvert.DeserializeObject(json);
             JToken localObj = JToken.FromObject(localJSON);
-            username = localObj["username"].Value<string>();
-            password = localObj["password"].Value<string>();
-            region = localObj["region"].Value<string>();
+            username = localObj["Username"].Value<string>();
+            password = localObj["Password"].Value<string>();
+            region = localObj["Region"].Value<string>();
             Console.WriteLine($"Found Username: {username}");
             
         }
@@ -120,14 +194,32 @@ namespace GetRankedPoints
                 if (rankedresp.IsSuccessful)
                 {
                     dynamic RankedJson = JsonConvert.DeserializeObject<JObject>(rankedresp.Content);
-                    // Debugging IGNORE
-                    Console.WriteLine(RankedJson);
+                    // Debugging IGNORE Console.WriteLine(RankedJson);
                     var store = RankedJson["Matches"];
                     foreach (var game in store)
                     {
                         if (game["CompetitiveMovement"] != "MOVEMENT_UNKNOWN")
                         {
-                            Console.WriteLine("Ranked Game detected.");
+                            Console.WriteLine("\nRanked Game detected.");
+
+                            Console.WriteLine($"Last match time: {DateTimeOffset.FromUnixTimeMilliseconds((long)game["MatchStartTime"])}");
+                            Console.WriteLine($"Last match map: {MapName[game["MapID"].ToString()]}");
+                            string gCM = game["CompetitiveMovement"].ToString();
+                            string CM = CompetitiveMovement[gCM];
+                            /*
+                             * -1 = 9 punti persi
+                             * -2 = 20 punti persi
+                             * -3 =
+                             *  0 =
+                             * +1 =
+                             * +2 = 21/19 punti
+                             * +3 = 35 punti
+                             * Demoted 71 punti
+                             */
+
+                            string result = gCM == "PROMOTED" || gCM == "DEMOTED" ? CM+Ranks[game["TierAfterUpdate"]]+")" : Int16.Parse(CM) < 0 ? "Lost "+"("+CM+")" : Int16.Parse(CM) == 0 ? "Draw "+"("+CM+")" : "Win "+"("+CM+")";
+                            
+                            Console.WriteLine($"Last match result: {result}");
                             int before = game["TierProgressBeforeUpdate"];
                             int after = game["TierProgressAfterUpdate"];
                             Console.WriteLine($"Points Before: {before}");
@@ -137,8 +229,16 @@ namespace GetRankedPoints
 
                             string str = before < after ? str = $"Congrats you gained: {num} points"
                                 : str = $"Congrats you lost: {num * -1} points";
-
                             Console.WriteLine(str);
+                            Console.WriteLine($"\nActual Rank: {Ranks[game["TierAfterUpdate"]]}\n");
+                            Console.WriteLine($"Points to RankUp ({Ranks[game["TierAfterUpdate"]+1]}): {100-after}!");
+                            string equals = new string('=', after/2);
+                            string space = new string('-', (100 - after)/2);
+                            Console.WriteLine($"[{equals}>{space}] {after}%\n");
+                           /* Console.WriteLine($"Points to Derank ({Ranks[game["TierAfterUpdate"]-1]}): {after}!");
+                            equals = new string('=', (100 - after)/2);
+                            space = new string('-', after/2);
+                            Console.WriteLine($"[{equals}>{space}] {100-after}%");*/
                             Console.ReadKey();
                             Environment.Exit(1);
 
@@ -146,14 +246,9 @@ namespace GetRankedPoints
 
                             //Console.WriteLine($"Net gain/loss: {num} points");
                         }
-                        else if (game["CompetitiveMovement"] == "PROMOTED")
-                        {
-                            Console.WriteLine($"Detected Rank up in last match, Current points in Rank: {game["TierProgressAfterUpdate"].ToString()}");
-                            Console.ReadKey();
-                            Environment.Exit(1);
-                        }
                         else
                         {
+                            Console.WriteLine("No ranked games detected!");
                             // Game does not register as a ranked game.
                         }
                     }

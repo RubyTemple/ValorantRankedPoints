@@ -7,8 +7,8 @@
     <list default="true" id="aec415f8-7f7d-4f02-b04e-3f0e0ffdcffe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GetRankedPoints/GetRankedPoints.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GetRankedPoints/GetRankedPoints.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GetRankedPoints/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GetRankedPoints/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetRankedPoints/obj/Debug/netcoreapp3.1/GetRankedPoints.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GetRankedPoints/obj/Debug/netcoreapp3.1/GetRankedPoints.AssemblyInfo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +40,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -72,6 +73,7 @@
       <updated>1608605828297</updated>
       <workItem from="1608605835477" duration="4890000" />
       <workItem from="1608612282119" duration="864000" />
+      <workItem from="1609081879464" duration="1095000" />
     </task>
     <servers />
   </component>
@@ -90,6 +92,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
