@@ -194,8 +194,7 @@ namespace GetRankedPoints
                 if (rankedresp.IsSuccessful)
                 {
                     dynamic RankedJson = JsonConvert.DeserializeObject<JObject>(rankedresp.Content);
-                    // Debugging IGNORE
-                    Console.WriteLine(RankedJson);
+                    // Debugging IGNORE Console.WriteLine(RankedJson);
                     var store = RankedJson["Matches"];
                     foreach (var game in store)
                     {
