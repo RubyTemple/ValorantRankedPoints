@@ -15,9 +15,9 @@ namespace GetRankedPoints
 
         public static string[] Ranks =
         {
-            "UnRanked 1",
-            "UnRanked 2",
-            "UnRanked 3",
+            "Unranked 1",
+            "Unranked 2",
+            "Unranked 3",
 
             "Iron 1",
             "Iron 2",
