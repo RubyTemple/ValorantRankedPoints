@@ -4,7 +4,10 @@
     <projectFile>GetRankedPoints/GetRankedPoints.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aec415f8-7f7d-4f02-b04e-3f0e0ffdcffe" name="Default Changelist" comment="Fixed Rankup problems" />
+    <list default="true" id="aec415f8-7f7d-4f02-b04e-3f0e0ffdcffe" name="Default Changelist" comment="Ops">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetRankedPoints/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GetRankedPoints/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,9 +15,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/RYZEN/Desktop/ValorantRankedPoints/GetRankedPoints/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -72,7 +72,9 @@
       <workItem from="1608605835477" duration="4890000" />
       <workItem from="1608612282119" duration="864000" />
       <workItem from="1609081879464" duration="3831000" />
-      <workItem from="1609089824009" duration="1820000" />
+      <workItem from="1609089824009" duration="2306000" />
+      <workItem from="1609191442365" duration="45000" />
+      <workItem from="1609193467978" duration="2597000" />
     </task>
     <task id="LOCAL-00001" summary="Update for pretty release!2">
       <created>1609083118711</created>
@@ -109,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609091058597</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ops">
+      <created>1609091904593</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609091904593</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,8 +141,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update for pretty release!2" />
-    <MESSAGE value="Ops" />
     <MESSAGE value="Fixed Rankup problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Rankup problems" />
+    <MESSAGE value="Ops" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ops" />
   </component>
 </project>

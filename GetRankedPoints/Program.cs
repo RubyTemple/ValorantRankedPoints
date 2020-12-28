@@ -207,11 +207,11 @@ namespace GetRankedPoints
                             string gCM = game["CompetitiveMovement"].ToString();
                             string CM = CompetitiveMovement[gCM];
                             /*
-                             * -1 = 9 punti persi
-                             * -2 = 20 punti persi
-                             * -3 =
+                             * -1 = 0/9 punti persi
+                             * -2 = 3/20 punti persi
+                             * -3 = 40 punti persi
                              *  0 =
-                             * +1 =
+                             * +1 = 
                              * +2 = 21/19 punti
                              * +3 = 35 punti
                              * Demoted 71 punti
@@ -245,14 +245,10 @@ namespace GetRankedPoints
 
                             //Console.WriteLine($"Net gain/loss: {num} points");
                         }
-                        else
-                        {
-                            Console.WriteLine("\nNo ranked games detected!");
-                            Console.ReadKey();
-                            Environment.Exit(1);
-                            // Game does not register as a ranked game.
-                        }
                     }
+                    Console.WriteLine("\nNo ranked games detected!");
+                    Console.ReadKey();
+                    Environment.Exit(1);
                 }
             
                 
